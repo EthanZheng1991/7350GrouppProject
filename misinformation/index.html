@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Following ZHENG</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+html, body {
+  background-color: #3F3F3F;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #E0E0E0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica";
+  letter-spacing: 5px;
+  color: #FFFFFF;
+}
+
+/* 导航栏增强 */
+.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.custom-navbar {
+  background-color: #0A0B0E;
+  padding: 12px 0;
+}
+
+.nav-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 15px;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* 内容区块 */
+.content-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 概念卡片 */
+.concept-card {
+  background: #2D2D2D;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  margin: 15px;
+}
+
+.concept-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 地图容器 */
+#policyMap {
+  height: 600px;
+  border-radius: 12px;
+  margin-top: 30px;
+  background: #505050;
+}
+
+/* 响应式视频容器 */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 20px 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+    blockquote {
+  border-left: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+</style>
+</head>
+<body>
+
+<!-- 导航栏 HTML -->
+<div class="navbar-fixed-top">
+  <div class="w3-bar w3-padding w3-card custom-navbar">
+    <!-- 左侧 logo 图片 -->
+    <a href="../index.html" class="w3-bar-item w3-button">
+      <img src="../picture/logo.png" alt="Logo" style="height:30px; vertical-align:middle;">
+    </a>
+    <!-- 右侧导航链接 -->
+    <div class="w3-right w3-hide-small">
+      <a href="../index.html" class="w3-bar-item w3-button nav-link">Story</a>
+      <a href="../howAI/index.html" class="w3-bar-item w3-button nav-link">How AI Creates Content</a>
+      <a href="index.html" class="w3-bar-item w3-button nav-link">About Misinformation</a>
+    </div>
+  </div>
+</div>
+
+<style>
+/* 双行主标题样式 */
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  padding: 6px 12px;
+}
+
+.logo-line {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+</style>
+<!-- 主页 -->
+<!-- 修改后的主页区域 -->
+<section id="home" class="content-section" style="padding-top:120px">
+    <h1 class="w3-center" style="margin-bottom:30px">UNDERSTANDING<br>DIGITAL DISINFORMATION</h1>
+    
+    <!-- 新增图片容器 -->
+    <div class="feature-image">
+      <img src="./images/misinformationhead.png" 
+           alt="Digital Disinformation Visualization"
+           style="width:100%; max-height:400px; object-fit:cover">
+    </div>
+  </section>
+  
+  <!-- 添加CSS样式 -->
+  <style>
+  .feature-image {
+    margin: 40px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  /* 调整概念区上间距 */
+  #concepts {
+    padding-top: 60px !important;
+  }
+  </style>
+
+<!-- 概念区 -->
+<!-- Concepts Section -->
+<section id="concepts" class="content-section">
+    <h2>KEY CONCEPTS</h2>
+    <div class="concept-container w3-row-padding">
+  
+      <!-- Misinformation Card -->
+      <div class="concept-card-container w3-col l4 m6 s12">
+        <div class="concept-card w3-padding">
+          <h3 class="w3-text-red">MISINFORMATION</h3>
+          <div class="w3-panel w3-dark-grey w3-round-large">
+            <blockquote class="w3-plain">
+              False information that is spread, regardless of whether there is intent to mislead
+            </blockquote>
+          </div>
+          <div class="w3-panel w3-black w3-round">
+            <p class="w3-opacity">Example:</p>
+            <p><i>No intention to forward outdated epidemic data</i></p>
+          </div>
+          <div class="w3-small w3-text-grey">
+            source: <a href="https://guides.lib.uw.edu/bothell/news/misinfo" 
+                  target="_blank" 
+                  class="w3-text-blue-grey">
+              UW Library Research Guide
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Disinformation Card -->
+      <div class="concept-card-container w3-col l4 m6 s12">
+        <div class="concept-card w3-padding">
+          <h3 class="w3-text-blue">DISINFORMATION</h3>
+          <div class="w3-panel w3-dark-grey w3-round-large">
+            <blockquote class="w3-plain">
+              Deliberately misleading or biased information; manipulated narrative or facts
+            </blockquote>
+          </div>
+          <div class="w3-panel w3-black w3-round">
+            <p class="w3-opacity">Example:</p>
+            <p><i>Government-backed online trolls spread false information</i></p>
+          </div>
+          <div class="w3-small w3-text-grey">
+            source: <a href="https://guides.lib.uw.edu/bothell/news/misinfo" 
+                  target="_blank" 
+                  class="w3-text-blue-grey">
+              UW Library Research Guide
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Fake News Card -->
+      <div class="concept-card-container w3-col l4 m6 s12">
+        <div class="concept-card w3-padding">
+          <h3 class="w3-text-green">FAKE NEWS</h3>
+          <div class="w3-panel w3-dark-grey w3-round-large">
+            <blockquote class="w3-plain">
+              Purposefully crafted, sensational, emotionally charged, misleading or totally fabricated information that mimics the form of mainstream news
+            </blockquote>
+          </div>
+          <div class="w3-panel w3-black w3-round">
+            <p class="w3-opacity">Example:</p>
+            <p><i>Clickbait articles about fictitious celebrity scandals</i></p>
+          </div>
+          <div class="w3-small w3-text-grey">
+            source: <a href="https://guides.lib.uw.edu/bothell/news/misinfo" 
+                  target="_blank" 
+                  class="w3-text-blue-grey">
+              UW Library Research Guide
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+</section>
+<style>
+  /* 新增样式 */
+  .concept-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .concept-card-container {
+    padding: 10px !important;
+  }
+  
+  .concept-card {
+    background: #2D2D2D !important;
+    border-radius: 8px;
+    height: 100%;
+    min-height: 320px;
+    padding: 20px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* 文字内容自适应 */
+  .concept-card blockquote {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 15px 0 !important;
+  }
+  
+  .concept-card .w3-panel {
+    flex-grow: 1;
+    overflow: auto;
+  }
+  
+  </style>
+
+<!-- 影响区 -->
+<!-- Impacts Section -->
+<section id="impacts" class="content-section">
+  <h2 class="section-title">IMPACT ANALYSIS</h2>
+  
+  <div class="impact-container">
+      <!-- 左侧影响导航 -->
+      <div class="impact-nav">
+          <!-- Health Impact -->
+          <div class="impact-card active" data-video="healthVideo">
+              <div class="impact-header">
+                  <h3>Health Impact</h3>
+                  <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="impact-content">
+                  <div class="content-item">
+                      <h4>Public trust crisis</h4>
+                      <p>False medical information has led to a decline in the vaccination rate</p>
+                  </div>
+                  <div class="content-item">
+                      <h4>Public health risk</h4>
+                      <p>Pseudoscientific treatment regimens have led to an increase in the incidence of complications</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Policy Impact -->
+          <div class="impact-card" data-video="policyVideo">
+              <div class="impact-header">
+                  <h3>Policy Impact</h3>
+                  <i class="fas fa-chevron-right"></i>
+              </div>
+              <div class="impact-content">
+                  <div class="content-item">
+                      <h4>The increase in regulatory costs</h4>
+                      <p>In 2023, governments around the world invested over 1.2 billion dollars in the governance of online information</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Economic Impact -->
+          <div class="impact-card" data-video="economicVideo">
+              <div class="impact-header">
+                  <h3>Economic Impact</h3>
+                  <i class="fas fa-chevron-right"></i>
+              </div>
+              <div class="impact-content">
+                  <div class="content-item">
+                      <h4>Abnormal fluctuations in the stock market</h4>
+                      <p>AI generated false financial reports, causing a tech company's market value to evaporate by $4.5 billion in a single day</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Environmental Impact -->
+          <div class="impact-card" data-video="envVideo">
+              <div class="impact-header">
+                  <h3>Environmental impact</h3>
+                  <i class="fas fa-chevron-right"></i>
+              </div>
+              <div class="impact-content">
+                  <div class="content-item">
+                      <h4>Delay in ecological protection</h4>
+                      <p>False environmental protection data has led to the postponement of the implementation of protection plans in some protected areas</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <!-- 右侧视频展示 -->
+<div class="video-display">
+  <!-- Health Video -->
+  <div id="healthVideo" class="video-wrapper active">
+      <iframe src="https://player.bilibili.com/player.html?bvid=BV1d5411x7RW&high_quality=1&autoplay=0" 
+              scrolling="no" 
+              allowfullscreen>
+      </iframe>
+  </div>
+
+  <!-- Policy Video -->
+  <div id="policyVideo" class="video-wrapper">
+      <iframe src="https://player.bilibili.com/player.html?bvid=BV1HcpueyESa&high_quality=1&autoplay=0"
+              scrolling="no"
+              allowfullscreen>
+      </iframe>
+  </div>
+
+  <!-- Economic Video -->
+  <div id="economicVideo" class="video-wrapper">
+      <iframe src="https://player.bilibili.com/player.html?bvid=BV1Yo4y157sg&page=1&high_quality=1&autoplay=0"
+              scrolling="no"
+              allowfullscreen>
+      </iframe>
+  </div>
+
+  <!-- Environmental Video -->
+  <div id="envVideo" class="video-wrapper">
+      <iframe src="https://player.bilibili.com/player.html?bvid=BV1zk4y1Y7Ho&high_quality=1&autoplay=0"
+              scrolling="no"
+              allowfullscreen>
+      </iframe>
+  </div>
+</div>
+  </div>
+</section>
+
+<style>
+/* 影响区容器 */
+.impact-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* 左侧导航样式 */
+.impact-nav {
+  background: #2A2A2A;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.impact-card {
+  background: #333;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: all 0.3s;
+}
+
+.impact-card.active {
+  border: 2px solid #4CAF50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.impact-header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.impact-header h3 {
+  margin: 0;
+  color: #FFF;
+}
+
+.impact-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 15px;
+}
+
+.impact-card.active .impact-content {
+  max-height: 600px;
+  padding: 15px;
+}
+
+.content-item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+/* 视频展示区 */
+.video-display {
+  background: #1A1A1A;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.video-wrapper {
+  display: none;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9比例 */
+  position: relative;
+}
+
+.video-wrapper.active {
+  display: block;
+  height: auto;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.video-alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #888;
+}
+
+.video-link {
+  color: #4CAF50;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .impact-container {
+      grid-template-columns: 1fr;
+  }
+  
+  .video-wrapper {
+      padding-bottom: 75%; /* 移动端调整比例 */
+  }
+}
+</style>
+
+<script>
+document.querySelectorAll('.impact-card').forEach(card => {
+  card.addEventListener('click', function() {
+      // 关闭其他卡片
+      document.querySelectorAll('.impact-card').forEach(item => {
+          if(item !== this) {
+              item.classList.remove('active');
+              item.querySelector('.impact-content').style.maxHeight = null;
+          }
+      });
+
+      // 切换当前卡片
+      this.classList.toggle('active');
+      const content = this.querySelector('.impact-content');
+      const videoId = this.dataset.video;
+
+      if(this.classList.contains('active')) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          showVideo(videoId);
+      } else {
+          content.style.maxHeight = null;
+          hideVideos();
+      }
+  });
+});
+
+function showVideo(videoId) {
+  document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+      wrapper.classList.remove('active');
+  });
+  document.getElementById(videoId).classList.add('active');
+}
+
+function hideVideos() {
+  document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+      wrapper.classList.remove('active');
+  });
+}
+</script>
+
+<!-- 政策地图 -->
+<section id="policies" class="content-section">
+  <h2>GLOBAL POLICIES</h2>
+  <div id="policyMap"></div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// 国家名称映射表
+const countryNameMapping = {
+    "United States of America": "United States",
+    "Russian Federation": "Russia",
+    "Republic of Korea": "South Korea",
+    "Democratic People's Republic of Korea": "North Korea",
+    "Czechia": "Czech Republic"
+};
+
+// 国家政策数据
+const policiesData = {
+    "China": {
+        laws: [
+            "《中华人民共和国网络安全法》",
+            "《中华人民共和国治安管理处罚法》",
+            "《中华人民共和国反电信网络诈骗法》",
+            "2025年9月1日施行《人工智能生成合成内容标志办法》"
+        ],
+        color: "#FF6B6B"
+    },
+    "Germany": {
+        laws: ["《网络执行法》NetzDG"],
+        color: "#4ECDC4"
+    },
+    "United States": {
+        laws: [
+            "2016年《反虚假信息及反宣传法案》",
+            "2017年《国家安全战略》"
+        ],
+        color: "#45B7D1"
+    },
+    "United Kingdom": {
+        laws: ["《在线安全法》"],
+        color: "#96CEB4"
+    },
+    "France": {
+        laws: ["《信息社会法案》"],
+        color: "#FFEEAD"
+    },
+    "Japan": {
+        laws: [
+            "《人工智能新法》",
+            "《为来自外国的虚假信息做好准备,网络空间信息操作的威胁》"
+        ],
+        color: "#D4A5A5"
+    },
+    "Singapore": {
+        laws: [
+            "《网络安全法》",
+            "《防止网络假信息和网络操纵法案》POFMA",
+            "2025年《深度合成内容管理条例》"
+        ],
+        color: "#77C9D4"
+    },
+    "Thailand": {
+        laws: ["《预防和打击技术犯罪措施法规》"],
+        color: "#E0A890"
+    },
+    "Malaysia": {
+        laws: ["《反假新闻法》"],
+        color: "#B1D877"
+    },
+    "European Union": {
+        laws: [
+            "《数字服务法案》DSA",
+            "《反虚假信息行为守则》"
+        ],
+        color: "#9B59B6"
+    },
+    "Russia": {
+        laws: [
+            "《俄罗斯假新闻法》",
+            "《俄罗斯联邦行政处罚法修正案》2023年修订" 
+        ],
+        color: "#C70039" 
+    },
+    "India": {
+        laws: [
+            "《印度信息技术法》第69A条虚假信息管控",
+            "2023年《数字媒体道德准则》" 
+        ],
+        color: "#FF5733" 
+    },
+    "Australia": {
+        laws: [
+            "《2024年通讯法修正案》", 
+            "《网络安全立法修正案》"
+        ],
+        color: "#2ECC71" 
+    }
+};
+
+// Leaflet地图初始化
+const map = L.map('policyMap').setView([30, 0], 2);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// 自定义Tooltip
+const customTooltip = L.tooltip({
+    direction: 'top',
+    permanent: false,
+    sticky: true,
+    opacity: 0.95,
+    className: 'custom-tooltip'
+});
+
+// 加载地理数据
+const dataVersion = "202405_v2";
+fetch(`https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json?v=${dataVersion}`)
+    .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+    })
+    .then(data => {
+        L.geoJSON(data, {
+            style: feature => ({
+                fillColor: getCountryColor(feature.properties.name),
+                weight: 1,
+                opacity: 1,
+                color: 'white',
+                fillOpacity: 0.7
+            }),  
+            onEachFeature: (feature, layer) => {
+                const countryName = countryNameMapping[feature.properties.name] || feature.properties.name;
+                const countryData = policiesData[countryName];
+                
+                if (countryData) {
+                    layer.on({
+                        mouseover: e => handleMouseOver(e, layer, countryName, countryData),
+                        mouseout: e => handleMouseOut(e, layer)
+                    });
+                }
+            }
+        }).addTo(map);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showMapError();
+    });
+
+// 工具函数
+function getCountryColor(geoName) {
+    const countryName = countryNameMapping[geoName] || geoName;
+    return policiesData[countryName]?.color || '#DDD';
+}
+
+function handleMouseOver(e, layer, countryName, countryData) {
+    layer.setStyle({
+        weight: 3,
+        color: '#FFF'
+    });
+    
+    const content = `
+        <div class="tooltip-header">
+            <h4>${countryName}</h4>
+            <div class="color-indicator" style="background:${countryData.color}"></div>
+        </div>
+        <ul class="law-list">
+            ${countryData.laws.map(law => `
+                <li>
+                    ${law.includes('年') ? '<span class="new-law">NEW</span>' : ''}
+                    ${law}
+                </li>
+            `).join('')}
+        </ul>
+    `;
+
+    customTooltip
+        .setContent(content)
+        .setLatLng(e.latlng)
+        .openOn(map);
+}
+
+function handleMouseOut(e, layer) {
+    layer.setStyle({
+        weight: 1,
+        color: 'white'
+    });
+    map.closeTooltip(customTooltip);
+}
+
+function showMapError() {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'map-error';
+    errorDiv.innerHTML = `
+        <p>⚠️ 地图数据加载失败</p>
+        <p>请检查网络连接后刷新页面</p>
+    `;
+    document.getElementById('policyMap').appendChild(errorDiv);
+}
+
+// 添加图例
+const legend = L.control({ position: 'bottomright' });
+legend.onAdd = function() {
+    const div = L.DomUtil.create('div', 'policy-legend');
+    div.innerHTML = `
+        <h4>政策法规图例</h4>
+        ${Object.entries(policiesData).map(([country, data]) => `
+            <div class="legend-item">
+                <i style="background:${data.color}"></i>
+                ${country}
+            </div>
+        `).join('')}
+    `;
+    return div;
+};
+legend.addTo(map);
+
+// 平滑滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+<style>
+/* 地图容器 */
+#policyMap {
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 工具提示样式 */
+.custom-tooltip {
+    background: rgba(26, 26, 26, 0.95) !important;
+    border: 2px solid #4CAF50 !important;
+    border-radius: 8px !important;
+    color: #EEE !important;
+    max-width: 300px;
+    padding: 15px !important;
+}
+
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #4CAF50;
+    padding-bottom: 8px;
+}
+
+.tooltip-header h4 {
+    margin: 0 10px 0 0;
+    color: #4CAF50;
+    font-size: 1.1em;
+}
+
+.color-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.law-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.law-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    line-height: 1.4;
+    font-size: 0.95em;
+}
+
+.law-list li:last-child {
+    border-bottom: none;
+}
+
+.new-law {
+    background: #4CAF50;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+
+/* 图例样式 */
+.policy-legend {
+    background: rgba(26, 26, 26, 0.9) !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    color: #EEE !important;
+    backdrop-filter: blur(2px);
+}
+
+.policy-legend h4 {
+    margin: 0 0 10px 0;
+    color: #4CAF50 !important;
+    font-size: 1em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.legend-item i {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    border-radius: 3px;
+}
+
+/* 错误提示 */
+.map-error {
+    padding: 20px;
+    color: #ff4444;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ff4444;
+    border-radius: 5px;
+    text-align: center;
+    margin: 20px;
+    font-weight: bold;
+}
+</style>
+</body>
+</html>
