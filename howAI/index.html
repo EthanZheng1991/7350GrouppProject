@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Following ZHENG</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body {
+    background-color: #3F3F3F;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #fff;
+}
+
+body {
+    font-family: "Helvetica";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica";
+    letter-spacing: 5px;
+    color: #fff;
+}
+
+/* Logo hover style */
+.logo-link:hover {
+    background-color: #777 !important;
+}
+
+/* Reset global section spacing */
+section {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix header spacing issues */
+header {
+    margin-bottom: 0;
+}
+
+/* Make intro block more compact */
+.intro-section {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 40vh; /* More flexible than aspect-ratio */
+}
+
+/* Sidebar styles */
+.w3-sidebar {
+    z-index: 3;
+    width: 250px;
+    top: 60px;
+    bottom: 0;
+    height: inherit;
+    background-color: #333;
+    color: #fff;
+}
+
+#sidebar-links {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+#sidebar-links::-webkit-scrollbar {
+    width: 6px;
+}
+
+#sidebar-links::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#sidebar-links::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+}
+
+.sidebar-link {
+    transition: all 0.3s ease;
+    margin: 4px 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Override w3 classes with dark backgrounds */
+.w3-container, .w3-panel, .w3-row, .w3-row-padding, .w3-cell-row, 
+.w3-third, .w3-twothird, .w3-padding, .w3-padding-large, 
+.w3-padding-32, .w3-padding-64, .w3-center {
+    background-color: #333;
+    color: #fff;
+}
+
+.w3-border {
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Theme overrides */
+.w3-theme, .w3-theme-l1, .w3-theme-l2, .w3-theme-l5 {
+    background-color: #222 !important;
+    color: #fff !important;
+}
+
+/* Fix for white links */
+a {
+    color: #fff;
+}
+
+
+
+footer div {
+    background-color: #222 !important;
+}
+
+.w3-bar {
+    background-color: #222;
+}
+
+/* Fix for ads */
+.w3-center p {
+    background-color: #333;
+}
+
+/* Override teal text color to make headings white */
+.w3-text-teal {
+    color: #fff !important;
+}
+
+/* Make navigation bar wider */
+.w3-bar.w3-theme.w3-top {
+    height: 60px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+.w3-bar.w3-theme.w3-top .w3-bar-item {
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.w3-bar.w3-theme.w3-top img {
+    height: 45px;
+    vertical-align: middle;
+}
+
+/* Adjust sidebar position to match taller navbar */
+.w3-sidebar {
+    top: 60px;
+}
+
+/* Adjust main content to match taller navbar */
+.w3-main {
+    margin-top: 60px;
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- 导航栏 HTML -->
+<div class="navbar-fixed-top">
+  <div class="w3-bar w3-padding w3-card custom-navbar">
+    <!-- 左侧 logo 图片 -->
+    <a href="../index.html" class="w3-bar-item w3-button">
+      <img src="../picture/logo.png" alt="Logo" style="height:30px; vertical-align:middle;">
+    </a>
+    <!-- 右侧导航链接 -->
+    <div class="w3-right w3-hide-small">
+      <a href="../index.html" class="w3-bar-item w3-button nav-link">Story</a>
+      <a href="index.html" class="w3-bar-item w3-button nav-link">How AI Creates Content</a>
+      <a href="../misinformation/index.html" class="w3-bar-item w3-button nav-link">About Misinformation</a>
+    </div>
+  </div>
+</div>
+
+<!-- 样式部分 -->
+<style>
+/* 固定在页面顶部 */
+.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999; /* 保证永远在最上层 */
+}
+
+/* 自定义导航栏样式 */
+.custom-navbar {
+  background-color: #0A0B0E;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* 导航链接样式 */
+.nav-link {
+  color: white;
+}
+
+/* 可选：添加悬停效果 */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+</style>
+
+
+
+
+
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar" style="background-color: #f5f5f5;">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+
+  <div style="display: flex; flex-direction: column; justify-content: center; height: 70vh; overflow: hidden;" id="sidebar-links">
+    <!-- 添加标题作为第一个“链接项” -->
+    <div class="w3-bar-item" style="font-weight: bold;">Useful Links：</div>
+    
+    <a class="w3-bar-item w3-button sidebar-link" href="https://chatgpt.com/auth/login" target="_blank">ChatGPT</a>
+    <a class="w3-bar-item w3-button sidebar-link" href="https://www.jasper.ai/" target="_blank">Jasper AI</a>
+    <a class="w3-bar-item w3-button sidebar-link" href="https://resources.nvidia.com/en-us-omniverse-product-configurator" target="_blank">NVIDIA Omniverse</a>
+    <a class="w3-bar-item w3-button sidebar-link" href="https://runwayml.com/" target="_blank">Runway</a>
+    <a class="w3-bar-item w3-button sidebar-link" href="https://zh.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86" target="_blank">NLP</a>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <span id="textGeneration" style="position: absolute; top: 60px;"></span>
+  <div class="w3-row">
+    <div style="width: 100%;">
+      <img src="Images/howhead.png" alt="Header Image" style="width: 100%; height: auto; display: block;">
+    </div>
+    <div class="w3-container w3-padding-32">
+      <div style="position: relative; display: inline-block;">
+        <img src="Images/ChatGPT-Logo.svg.png" alt="OpenAI Logo" style="width: 40px; height: 40px; position: absolute; right:120px; top: 80%; transform: translateY(-50%);">
+        <h1 class="w3-text-teal">ABOUT TEXT GENERATION</h1><br><br>
+        <h1 class="w3-text-teal">ChatGPT (OpenAI)</h1>
+      </div>
+      <p style="text-align: justify;">This tool is suitable for scenarios such as rapid news article generation, title optimization, information summarization, and multilingual reporting. It can intelligently output structurally complete news content based on keywords or event backgrounds and supports custom tone styles (such as neutral, serious, concise). Its built-in real-time collaboration feature helps journalists broaden their thinking, refine text, or adjust length. It also provides multilingual conversion capabilities to facilitate cross-language adaptation and generation for international news reporting. We recommend using the GPT-4 version, which offers stronger context understanding and accuracy, ensuring that the generated content is logically clear and meets professional requirements.</p>
+      
+      <div class="w3-border w3-center" style="padding: 0; margin-top: 30px; width: 100%;">
+        <video width="100%" height="auto" controls style="display: block;">
+          <source src="Images/视频1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-container">
+      <div style="position: relative; display: inline-block;">
+        <img src="Images/JASPER.png" alt="Jasper AI Logo" style="width: 40px; height: 40px; position: absolute; right: -50px; top: 50%; transform: translateY(-50%);">
+        <h1 class="w3-text-teal">Jasper AI</h1>
+      </div>
+      <p style="text-align: justify;">Jasper AI is an AI-based writing and content generation platform that integrates advanced natural language processing technologies such as GPT-3 and GPT-4. It can automatically generate articles, blog posts, ad copy, and social media content based on user-input themes, keywords, or prompts. The platform offers a variety of preset templates (such as product descriptions, SEO optimization, email marketing, etc.), allowing users to quickly create professional content by selecting a template and entering basic information. Additionally, it supports multilingual text creation, catering to global market demands, helping businesses efficiently complete cross-language content marketing and brand promotion, significantly enhancing the efficiency and quality of content production.</p>
+      <div style="text-align: center; margin-top: 30px; margin-bottom: 30px; width: 100%;">
+        <img src="Images/JASPER输出.jpg" alt="Jasper AI Dashboard" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        <p style="margin-top: 15px; font-style: italic; color: #999;">Due to the limited funds of our group, video teaching is impossible. Sorry.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="imageGeneration" class="w3-row w3-padding-64">
+    <div class="w3-container">
+      <div style="position: relative; display: inline-block;">
+        <img src="Images/英伟达.png" alt="Image Generation Logo" style="width: 40px; height: 40px; position: absolute; right: 125px; top: 84%; transform: translateY(-50%);">
+        
+        <h1 class="w3-text-teal">ABOUT IMAGE GENERATION</h1><br><br>
+        <h1 class="w3-text-teal">NVIDIA Omniverse</h1>
+      </div>
+      <p style="text-align: justify;">NVIDIA Omniverse is a platform for professional 3D content creation and collaboration. Although it does not rely solely on AI, it has integrated a variety of AI-accelerated tools that significantly improve the efficiency of modeling, rendering, and animation production.
+        Watch the latest collection of fundamental technologies to learn about the results of decades of NVIDIA rendering, simulation, and AI technology. It shows how developers in the industrial and scientific communities can use NVIDIA Omniverse to build their own applications from scratch or integrate APIs into existing workflows.
+      </p>
+      <div style="text-align: center; margin-top: 30px; margin-bottom: 30px; width: 100%;">
+        <video width="100%" height="auto" controls style="display: block; max-width: 80%; margin: 0 auto;">
+          <source src="https://images.nvidia.com/cn/youtube-replicates/_ulHmeOxUuU.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div id="RunwaySection" class="w3-row w3-padding-64">
+    <div class="w3-container">
+      <div style="position: relative; display: inline-block;">
+        <img src="Images/Runway.png" alt="Runway Logo" style="width: 40px; height: 40px; position: absolute; right: -50px; top: 50%; transform: translateY(-50%);">
+        <h1 class="w3-text-teal">Runway</h1>
+      </div>
+      <p style="text-align: justify;">Runway is a creative tool platform driven by AI, offering a one-stop digital content creation solution for creatives through the integration of advanced video editing, image processing, and generative models. It not only lowers the technical barrier, allowing more non-professional users to experience the convenience brought by artificial intelligence, but also significantly enhances the efficiency of creation and production through efficient workflow integration. Whether it's video effects, image restoration, or the generation of new content, Runway provides users with a wealth of features and flexible application scenarios.
+Runway provides a variety of AI-based tools, such as background removal, object tracking, style migration, image repair and video special effects generation, enabling creators to quickly process and iterate on their material.
+Real-time collaboration and cloud processing Users can run compute-intensive AI models in the cloud with the help of the Runway platform, reducing local hardware requirements. At the same time, the platform supports real-time collaborative creation by teams, facilitating cross-regional collaboration.</p>
+        
+        <div style="text-align: center; margin-top: 30px; margin-bottom: 30px; width: 100%;">
+          <img src="Images/Runway截图.png" alt="Runway AI Generated Example" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+          <p style="margin-top: 15px; font-style: italic; color: #999;">Due to the limited funds of our group, video teaching is impossible. Sorry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span id="NLP"></span>
+  <div class="w3-row w3-padding-64" style="min-height: 100vh;">
+    <div class="w3-container" style="padding-left: 100px; margin-left: auto; max-width: 90%;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <img src="Images/NLP2.png" alt="So... what is NLP" style="max-width: 40%; height: auto; border-radius: 8px;">
+      </div>
+      <div style="position: relative; display: inline-block;">
+        <img src="Images/NLP.png" alt="NLP Logo" style="width:60px; height: 40px; position: absolute; right: -50px; top: 50%; transform: translateY(-50%);">
+        <h1 class="w3-text-teal">NLP</h1>
+      </div>
+      
+      <p style="text-align: justify; margin-bottom: 30px;">Natural Language Processing (NLP) is a field of artificial intelligence that focuses on the interaction between computers and human language. It enables machines to read, understand, and derive meaning from human languages. NLP combines computational linguistics—rule-based modeling of human language—with statistical, machine learning, and deep learning models.</p>
+      
+      <!-- Interactive NLP Demo -->
+      <div class="w3-card-4" style="margin: 30px 0; border-radius: 8px; overflow: hidden; background-color: #444;">
+        <div class="w3-container w3-theme" style="padding: 15px;">
+          <h3>Try NLP Yourself!（Only for fun）</h3>
+        </div>
+        
+        <div class="w3-container" style="padding: 20px;">
+          <label for="nlp-input">Enter some text to analyze:</label>
+          <textarea id="nlp-input" class="w3-input w3-border" style="margin: 10px 0; background-color: #555; color: white; min-height: 100px;" placeholder="Type or paste your text here..."></textarea>
+          <button id="analyze-btn" class="w3-button w3-theme" style="margin-top: 10px;">Analyze Text</button>
+          
+          <div id="analysis-results" style="margin-top: 20px; display: none;">
+            <h4>Analysis Results:</h4>
+            
+            <div class="w3-row">
+              <div class="w3-half">
+                <div class="result-card" style="margin: 10px; padding: 15px; background-color: #333; border-radius: 8px;">
+                  <h5>Word Count</h5>
+                  <div id="word-count" class="result-value" style="font-size: 24px; font-weight: bold; color: #4CAF50;">0</div>
+                </div>
+              </div>
+              <div class="w3-half">
+                <div class="result-card" style="margin: 10px; padding: 15px; background-color: #333; border-radius: 8px;">
+                  <h5>Sentiment</h5>
+                  <div id="sentiment" class="result-value" style="font-size: 24px; font-weight: bold; color: #2196F3;">Neutral</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="w3-row">
+              <div class="w3-half">
+                <div class="result-card" style="margin: 10px; padding: 15px; background-color: #333; border-radius: 8px;">
+                  <h5>Key Entities</h5>
+                  <div id="entities" style="min-height: 50px;"></div>
+                </div>
+              </div>
+              <div class="w3-half">
+                <div class="result-card" style="margin: 10px; padding: 15px; background-color: #333; border-radius: 8px;">
+                  <h5>Word Distribution</h5>
+                  <div id="word-visual" style="height: 150px; display: flex; align-items: flex-end; justify-content: space-around; padding-top: 10px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 40px;">
+        <h3 class="w3-text-teal">Applications of NLP</h3>
+        <div class="w3-row">
+          <div class="w3-third">
+            <div class="application-card" style="margin: 10px; padding: 20px; background-color: #333; border-radius: 8px; min-height: 200px; transition: transform 0.3s ease;">
+              <h4>Machine Translation</h4>
+              <p>Automatic translation between languages, powering tools like Google Translate and language features in global applications.</p>
+            </div>
+          </div>
+          <div class="w3-third">
+            <div class="application-card" style="margin: 10px; padding: 20px; background-color: #333; border-radius: 8px; min-height: 200px; transition: transform 0.3s ease;">
+              <h4>Chatbots & Assistants</h4>
+              <p>Virtual assistants like Siri, Alexa, and customer service bots that can understand and respond to human queries.</p>
+            </div>
+          </div>
+          <div class="w3-third">
+            <div class="application-card" style="margin: 10px; padding: 20px; background-color: #333; border-radius: 8px; min-height: 200px; transition: transform 0.3s ease;">
+              <h4>Sentiment Analysis</h4>
+              <p>Identifying emotional tone in text, used by businesses to understand customer feedback and social media sentiment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full width banner image -->
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Footer</h4>
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+
+// Sidebar sliding effect
+document.addEventListener('DOMContentLoaded', function() {
+  let startY = 0;
+  let scrollTop = 0;
+  const sidebarLinks = document.getElementById('sidebar-links');
+  
+  sidebarLinks.addEventListener('mousedown', function(e) {
+    startY = e.clientY;
+    scrollTop = sidebarLinks.scrollTop;
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+  });
+  
+  function mouseMoveHandler(e) {
+    const deltaY = startY - e.clientY;
+    sidebarLinks.scrollTop = scrollTop + deltaY;
+  }
+  
+  function mouseUpHandler() {
+    document.removeEventListener('mousemove', mouseMoveHandler);
+    document.removeEventListener('mouseup', mouseUpHandler);
+  }
+  
+  // Add touch support for mobile
+  sidebarLinks.addEventListener('touchstart', function(e) {
+    startY = e.touches[0].clientY;
+    scrollTop = sidebarLinks.scrollTop;
+  });
+  
+  sidebarLinks.addEventListener('touchmove', function(e) {
+    const deltaY = startY - e.touches[0].clientY;
+    sidebarLinks.scrollTop = scrollTop + deltaY;
+    startY = e.touches[0].clientY;
+    scrollTop = sidebarLinks.scrollTop;
+  });
+  
+  // NLP Demo Interactive Features
+  const analyzeBtn = document.getElementById('analyze-btn');
+  const nlpInput = document.getElementById('nlp-input');
+  const resultsDiv = document.getElementById('analysis-results');
+  const wordCountDisplay = document.getElementById('word-count');
+  const sentimentDisplay = document.getElementById('sentiment');
+  const entitiesDisplay = document.getElementById('entities');
+  const wordVisualDisplay = document.getElementById('word-visual');
+  
+  if (analyzeBtn) {
+    analyzeBtn.addEventListener('click', function() {
+      const text = nlpInput.value.trim();
+      
+      if (text.length > 0) {
+        // Show results section with animation
+        resultsDiv.style.display = 'block';
+        resultsDiv.style.opacity = '0';
+        setTimeout(() => {
+          resultsDiv.style.transition = 'opacity 0.5s ease';
+          resultsDiv.style.opacity = '1';
+        }, 10);
+        
+        // Calculate and display word count with counting animation
+        const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
+        animateNumber(wordCountDisplay, 0, wordCount, 1000);
+        
+        // Simulate sentiment analysis
+        const sentiments = ['Very Negative', 'Negative', 'Neutral', 'Positive', 'Very Positive'];
+        const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
+        sentimentDisplay.textContent = randomSentiment;
+        
+        // Set color based on sentiment
+        if (randomSentiment.includes('Negative')) {
+          sentimentDisplay.style.color = '#FF5252';
+        } else if (randomSentiment.includes('Positive')) {
+          sentimentDisplay.style.color = '#4CAF50';
+        } else {
+          sentimentDisplay.style.color = '#2196F3';
+        }
+        
+        // Generate fake entities
+        generateEntities(text, entitiesDisplay);
+        
+        // Generate word visualization
+        generateWordVisual(text, wordVisualDisplay);
+      }
+    });
+  }
+  
+  // Function to animate counting
+  function animateNumber(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const currentCount = Math.floor(progress * (end - start) + start);
+      element.textContent = currentCount;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+  
+  // Function to generate fake entities
+  function generateEntities(text, container) {
+    container.innerHTML = '';
+    
+    // Get some words from the text
+    const words = text.split(/\s+/).filter(word => word.length > 3);
+    
+    // Select up to 5 random words as "entities"
+    const entityTypes = ['Person', 'Organization', 'Location', 'Date', 'Product'];
+    const colors = ['#FF5252', '#FF4081', '#7C4DFF', '#448AFF', '#18FFFF'];
+    
+    const maxEntities = Math.min(5, words.length);
+    const usedIndices = new Set();
+    
+    for (let i = 0; i < maxEntities; i++) {
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * words.length);
+      } while (usedIndices.has(randomIndex));
+      
+      usedIndices.add(randomIndex);
+      
+      const entityWord = words[randomIndex];
+      const entityType = entityTypes[i % entityTypes.length];
+      const color = colors[i % colors.length];
+      
+      const entitySpan = document.createElement('span');
+      entitySpan.style.display = 'inline-block';
+      entitySpan.style.margin = '3px';
+      entitySpan.style.padding = '5px 10px';
+      entitySpan.style.borderRadius = '15px';
+      entitySpan.style.backgroundColor = color;
+      entitySpan.style.color = 'white';
+      entitySpan.textContent = `${entityWord} (${entityType})`;
+      
+      // Add with animation
+      entitySpan.style.transform = 'scale(0)';
+      container.appendChild(entitySpan);
+      
+      setTimeout(() => {
+        entitySpan.style.transition = 'transform 0.3s ease';
+        entitySpan.style.transform = 'scale(1)';
+      }, i * 200);
+    }
+  }
+  
+  // Function to generate word visualization
+  function generateWordVisual(text, container) {
+    container.innerHTML = '';
+    
+    // Get word frequency
+    const words = text.toLowerCase().split(/\s+/).filter(word => word.length > 0);
+    const wordFreq = {};
+    
+    words.forEach(word => {
+      // Remove punctuation
+      const cleanWord = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+      if (cleanWord && cleanWord.length > 2) {
+        wordFreq[cleanWord] = (wordFreq[cleanWord] || 0) + 1;
+      }
+    });
+    
+    // Get top words
+    const topWords = Object.entries(wordFreq)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8);
+    
+    // Find max frequency
+    const maxFreq = topWords.length > 0 ? topWords[0][1] : 0;
+    
+    // Create bars for visualization
+    topWords.forEach(([word, freq], index) => {
+      const barContainer = document.createElement('div');
+      barContainer.style.display = 'flex';
+      barContainer.style.flexDirection = 'column';
+      barContainer.style.alignItems = 'center';
+      barContainer.style.width = `${100 / Math.min(topWords.length, 8)}%`;
+      
+      const bar = document.createElement('div');
+      const height = Math.max(20, (freq / maxFreq) * 120);
+      
+      bar.style.width = '80%';
+      bar.style.backgroundColor = `hsl(${200 + index * 20}, 70%, 50%)`;
+      bar.style.height = '0';
+      bar.style.transition = 'height 1s ease';
+      bar.style.borderRadius = '3px 3px 0 0';
+      
+      const label = document.createElement('div');
+      label.textContent = word;
+      label.style.fontSize = '10px';
+      label.style.marginTop = '5px';
+      label.style.textAlign = 'center';
+      label.style.wordBreak = 'break-all';
+      label.style.width = '100%';
+      
+      barContainer.appendChild(bar);
+      barContainer.appendChild(label);
+      container.appendChild(barContainer);
+      
+      // Animate the bar height
+      setTimeout(() => {
+        bar.style.height = `${height}px`;
+      }, 100 + index * 100);
+    });
+  }
+  
+  // Add hover effects to application cards
+  const appCards = document.querySelectorAll('.application-card');
+  appCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-10px)';
+      card.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = 'none';
+    });
+  });
+});
+</script>
+
+</body>
+</html>
